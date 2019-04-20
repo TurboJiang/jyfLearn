@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 等于es6中的reverse() -->
+    <!-- 数组，字符串有length，可以用下标获取 对象没有length  -->
+    <!-- <script>
+        let arr = [1, 2, 3, 4, 5];
+        function res(num) {
+            let s = num.toString();
+            let a = [];
+            for (let i = 0; i < s.length; i++) {
+                a.unshift(s[i]);
+            }
+            return a.join('');//如何拼接
+        }
+        console.log(res(arr));
+        console.log(res('abc'));//倒置
+    </script> -->
+
+    <!-- sort() 排序  会修改数组的原始值 只能识别数字的第一位-->
+    <script>
+        let arr = [5, 7, 3, 4, 1];
+        // console.log(arr.sort());
+        function minNumber(numbers){
+            // sort()支持传参：回调函数
+            return numbers.sort(compare);
+            let  res = '';
+            for(let i=0;i<numbers.length;i++){
+                res += numbers[i];
+            }
+            return res;
+        }
+
+        function compare(a, b) {
+            let str1 = a + "" + b;//拼接成字符串
+            let str2 = b + "" + a;
+            // console.log(str1);//min 23
+            // console.log(str2);//max 32
+            // console.log(str1.charAt(0));//字符串通过下标返回的值
+
+            // 可以进行多位数的比较 弥补sort()方法带来的不足
+            for (let i = 0; i < str1.length; i++) {
+                // 两个if判断
+                if(str1.charAt(i)>str2.charAt(i)){
+                    // i=0时 2>3? i=1时 3>2
+                    return 1; //true
+                }
+                if(str1.charAt(i)<str2.charAt(i)){
+                    return -1; //false
+                }
+            }
+        }
+        // compare(2, 3);
+        console.log(minNumber([5, 7, 3, 4, 1]));
+        console.log(minNumber([5, 17, 23, 4, 10]));
+    </script>
+</body>
+
+</html>
