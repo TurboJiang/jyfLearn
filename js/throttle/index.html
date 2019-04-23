@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Throttle 防抖</title>
+</head>
+
+<body>
+    <div class="row"><input type="text" id="unDebounce"></div>
+    <div class="row"><input type="text" id="debounce"></div>
+    <script>
+        // 面霸 throttle
+        //异步 主动向服务器端发起请求 会给服务器端带来压力
+        function ajax(content) {
+            // XMLHttpRequest
+            console.log('ajax request' + content);
+        }
+
+        let inputa = document.getElementById('unDebounce');
+        let debounceA = document.getElementById('debounce');
+
+        debounceA.addEventListener('keyup', function (e) {
+            // ajax(e.target.value); 不能直接ajax 但最后还是要ajax 只不过是要少做
+            debounceAjax(e.target.value);//形成闭包 ，创建一个函数debounceAjax
+        });
+        var debounceAjax = debounce(ajax, 500);//debounceAjax是另一个函数debounce的实现结果
+
+        /**
+         * @功能 防抖 性能优化
+         * @param func function
+         * @param delay number 在一定时间内执行多少次
+         * @return 返回一个function（在规定时间之内执行次数显著下降）
+        */
+        function debounce(func, delay) {
+            // 接受任何的功能需求，在一定的时间范围内限制某个函数的执行次数达到防抖的功能
+            // let _timeout;//闭包，不会被销毁(和下面的setTimeOut产生依赖)
+            let i = 0;
+            return function (args) {//闭包
+                i++;
+                console.log('clear', _timeout, i);
+                clearTimeout(_timeout);//先清除_timeout
+                // _timeout换成func.id 减少变量的定义
+                var that = this;
+                func.id = setTimeout(function () {//再生成_timeout 下一次再使用已经被清除 delay时间内不会再执行
+                    // func(args);
+                    func.call(that.args);//保证能得到数据
+                }, delay);
+                console.log(_timeout, '****', i);
+            }
+            // 只执行最后一次 停顿0.5s之后不输入就直接返回搜索结果
+        }
+        inputa.addEventListener('keyup', function (e) {
+            ajax(e.target.value);//对象的值
+        });
+    </script>
+</body>
+
+</html>
