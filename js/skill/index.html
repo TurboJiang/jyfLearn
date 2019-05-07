@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URL</title>
+</head>
+
+<body>
+    <!-- a标签字符串查询 -->
+    <a href="?name=lilei&sex=male">
+        Lilei
+    </a>
+    <a href="?name=hanmeimei&sex=female">
+        Hanmeimei
+    </a>
+    <script>
+        const search = location.search;
+        // console.log(search);
+        if (search) {
+            // URLSearchParams接口定义了一些实用的方法来处理 URL 的查询字符串。
+            const paramsObj = new URLSearchParams(search);
+            // console.log(paramsObj);
+            // 点击不同标签 查询的对象内容不一样 查询参数不一样
+            console.log(paramsObj.get('name'));
+            console.log(paramsObj.get('sex'));
+        }
+        // 将search部分中通过&连接起来的每一项返回
+        function getQueryString() {
+            let obj = {};
+            // substr从某个位置开始截取
+            const search = location.search.substr(1);
+            // const searchArr = search.split('&');
+
+            
+            // 使用正则表达式进行查询
+            const searchArr = search.split(/&/g);
+            // console.log(search);
+            // console.log(searchArr);
+            searchArr.forEach(item => {
+                const ret = item.split('=');
+                // console.log(ret);
+                obj[ret[0]] = ret[1];
+            })
+            return obj;
+            // return {
+            //     name: 'lilei',
+            //     sex: 'male'
+            // }
+        }
+        const queryObj = getQueryString();
+        console.log(queryObj);
+    </script>
+</body>
+
+</html>

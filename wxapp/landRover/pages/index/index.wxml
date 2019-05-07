@@ -1,0 +1,18 @@
+<!-- indicator-dots 轮播图片的小点提示 当前滑到第几页 -->
+<swiper class="section hero white" indicator-dots="{{true}}">
+  <!-- 渲染主页面 加上slides图片 -->
+  <block wx:for="{{ slides }}">
+    <swiper-item>
+      <image src="{{ item.image }}" mode="aspectFill" />
+      <view class="content center">
+        <view class="sub-header">{{item.sub_header}}</view>
+        <view class="header">{{item.header}}</view>
+        <view class="description">{{item.description}}</view>
+        <view class="action">
+          <button class="button" bindtap="testDrive">预约试驾</button>
+          <button class="button primary" data-id="{{item.id}}" bindtap="handleReadMore">了解更多</button>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
