@@ -1,0 +1,6 @@
+<!-- pages/countdown/countdown.wxml -->
+<!-- <text>pages/countdown/countdown.wxml</text> -->
+<!-- start倒计时有没有开始 -->
+<countdown id="sendRandom" start="{{start}}" bind:getCountdownEvent="_getCountdownEvent"
+    bind:setStartDataEvent="_setStartDataEvent"
+></countdown>
