@@ -7,7 +7,8 @@ Page({
   data: {
     hasList: false,
     cart: [],
-    selectAllStatus: true
+    selectAllStatus: true,
+    totalPrice: ''
   },
 
   /**
@@ -36,6 +37,7 @@ Page({
           { id: 2, title: '素米 500g', image: '/image/s6.png', num: 1, price: 0.03, selected: true }
         ]
       })
+      this.getTotalPrice();
     }, 1000);
   },
   selectAll() {
@@ -49,6 +51,68 @@ Page({
       selectAllStatus: selectAllStatus,
       carts: carts
     })
+  },
+  // 计算价钱
+  getTotalPrice() {
+    let carts = this.data.carts;
+    let total = 0;
+    for (let i = 0; i < carts.length; i++) {
+      if (carts[i].selected) {
+        total += carts[i].num * carts[i].price
+      }
+    }
+    this.setData({
+      totalPrice: total.toFixed(2)
+    })
+  },
+  // 减
+  minusCount(e) {
+    // console.log(e);
+    const index = e.target.dataset.index;
+    // 获取数据源
+    let carts = this.data.carts
+    let num = carts[index].num
+    if (num <= 1) {
+      return
+    }
+    num = num - 1;
+    carts[index].num = num
+    // 修改数据源
+    this.setData({
+      carts: carts
+    })
+    this.getTotalPrice();
+  },
+  // 加
+  addCount(e) {
+    // console.log(e);
+    const index = e.target.dataset.index;
+    let carts = this.data.carts;
+    let num = carts[index].num
+    num = num + 1
+    carts[index].num = num
+    this.setData({
+      carts: carts
+    })
+    this.getTotalPrice();
+  },
+  deleteList(e) {
+    // 数组删除数据 splice 两个参数 从什么位置 多少条
+    console.log(e)
+    const index = e.target.dataset.index;
+    const carts = this.data.carts;
+    carts.splice(index, 1);
+    this.setData({
+      carts: carts
+    })
+    // 判断购物车是否被清空了
+    if (!carts.length) {
+      this.setData({
+        hasList: false
+      })
+    }else{
+      this.getTotalPrice()
+    }
   },
   /**
    * 生命周期函数--监听页面隐藏
