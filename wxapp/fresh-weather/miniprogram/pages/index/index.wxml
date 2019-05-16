@@ -1,0 +1,15 @@
+<!-- miniprogram/pages/index/index.wxml -->
+<!-- 设置背景图片直接用行内样式（数据源） 小程序不支持在css中写 1px=2rpx -->
+<view class="wrapper" style="height:100%;background:url({{backgroundImage}}) center -178rpx / 100% no-repeat {{backgroundColor}}">
+    <view class="navigator" bindtap="goDiary">
+        <icon type="edit" />
+    </view>
+</view>
+<view class="container" id="canvas-wrapper" style="padding-top:{{paddingTop}}px">
+    <view class="now">
+        <view class="location" bindtap="chooseLocation">
+            <icon type="dingwei" />
+            <text>{{address}}</text>
+        </view>
+    </view>
+</view>
