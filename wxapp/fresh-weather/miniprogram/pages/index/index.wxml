@@ -4,12 +4,12 @@
     <view class="navigator" bindtap="goDiary">
         <icon type="edit" />
     </view>
-</view>
-<view class="container" id="canvas-wrapper" style="padding-top:{{paddingTop}}px">
-    <view class="now">
-        <view class="location" bindtap="chooseLocation">
-            <icon type="dingwei" />
-            <text>{{address}}</text>
+    <view class="container" id="canvas-wrapper" style="padding-top:{{paddingTop}}px">
+        <view class="now">
+            <view class="location" bindtap="chooseLocation">
+                <icon type="dingwei" />
+                <text>{{address}}</text>
+            </view>
         </view>
     </view>
 </view>

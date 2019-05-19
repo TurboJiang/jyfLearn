@@ -1,5 +1,5 @@
 const app = getApp()
-import { addEmotion, geocoder, getWeather} from '../../lib/api'
+import { addEmotion, geocoder, getWeather } from '../../lib/api'
 
 Page({
   data: {
@@ -10,6 +10,16 @@ Page({
     lon: 116.307689,
     paddingTop: 0,
     scale: 1
+  },
+  goDiary() {
+    wx.navigateTo({
+      url: '../diary/diary',
+      success: (result)=>{
+        
+      },
+      fail: () => { },
+      complete: () => { }
+    })
   },
   onLoad() {
     let self = this
@@ -25,8 +35,8 @@ Page({
           paddingTop: result.statusBarHeight + 12
         })
       },
-      fail: () => {},
-      complete: () => {}
+      fail: () => { },
+      complete: () => { }
     });
     this.getLocation()
   },
@@ -73,7 +83,7 @@ Page({
       wx.hideLoading()
     }
 
-    geocoder(lat, lon, (res)=>{
+    geocoder(lat, lon, (res) => {
       wx.hideLoading()
       let result = (res.data || {}).result
       console.log(res)

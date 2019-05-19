@@ -12,6 +12,8 @@
 	"appid": "wxdb67ca7fd3d5d369",
 	"projectname": "fresh-weather",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

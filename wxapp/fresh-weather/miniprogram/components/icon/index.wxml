@@ -1,0 +1,5 @@
+<!--components/icon/index.wxml-->
+<!-- <text>components/icon/index.wxml</text> -->
+<text class="icon icon-{{type}}">
+    
+</text>
