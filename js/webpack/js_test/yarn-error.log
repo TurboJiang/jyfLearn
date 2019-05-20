@@ -1,0 +1,47 @@
+Arguments: 
+  D:\旅梦app\node.exe C:\Users\lenovo\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add mocha chari
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;D:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;D:\Program Files\Microsoft SQL Server\140\Tools\Binn\;D:\Program Files\Microsoft SQL Server\140\DTS\Binn\;D:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;D:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;D:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;C:\WINDOWS\System32\OpenSSH\;:\旅梦\Git\cmd;;;\旅梦app\;;;:\旅梦\Git\cmd;;;D:\旅梦\Git\cmd;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\lenovo\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Java\jdk1.8.0_144\bin;D:\新建文件夹\Microsoft VS Code\bin;C:\Users\lenovo\AppData\Roaming\npm;D:\coding dream\Git\cmd;
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.15.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/chari: Not found
+      at Request.params.callback [as _callback] (C:\Users\lenovo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66091:18)
+      at Request.self.callback (C:\Users\lenovo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129590:22)
+      at Request.emit (events.js:189:13)
+      at Request.<anonymous> (C:\Users\lenovo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:130562:10)
+      at Request.emit (events.js:189:13)
+      at IncomingMessage.<anonymous> (C:\Users\lenovo\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:130484:12)
+      at Object.onceWrapper (events.js:277:13)
+      at IncomingMessage.emit (events.js:194:15)
+      at endReadableNT (_stream_readable.js:1103:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "js_test",
+    "version": "1.0.0",
+    "description": "代码测试？\r 代码 + 测试 = 上线\r 自己写的代码自己测试？\r babel 测试js es6——>es5\r eslint js是否工整\r stylus\r mocha\r webpack",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
