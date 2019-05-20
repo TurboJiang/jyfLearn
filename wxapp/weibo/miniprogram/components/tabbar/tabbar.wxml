@@ -1,0 +1,5 @@
+<!--components/tabbar/tabbar.wxml-->
+<!-- <text>components/tabbar/tabbar.wxml</text> -->
+<view class="weibo-tabbar">
+    <view class="item-left" bindtap="goHome" data-hi="{{isIndex}}"></view>
+</view>
