@@ -19,21 +19,54 @@ var addTwoNumbers = function (l1, l2) {
     // 倒着来相加
     while (newL1) {
         a.push(newL1.val);
-        newL1 = newL1.next
+        newL1 = newL1.next;
     }
     while (newL2) {
         b.push(newL2.val);
-        newL2 = newL2.next
+        newL2 = newL2.next;
     }
+    // 反转过后会影响初始值
     a.reverse();
     b.reverse();
-    console.log(a, b)
+    console.log(a, b);
 
-    let ans = [];
-    let carry = 0;
-    while (a.length && b.length) {
-        
+    let ans = [];//存放两位相加的结果
+    let carry = 0;//是否进位
+    // a、b之间只有一个还有就不结束
+    while (a.length || b.length) {
+        // 不确定a、b谁长
+        // 只要a还存在 就将a的第一个拿出来  只要b还在就将b的第一个拿出来
+        let c = a.length ? a.shift() : 0;
+        let d = b.length ? b.shift() : 0;
+
+        let sum = c + d + carry;
+        // 第一位相加 加上进位
+        ans.push(sum % 10);
+        // 处理进位问题
+        if (sum >= 10) {
+            carry = 1;
+        } else {
+            carry = 0;
+        }
     }
+    // carry存在就执行&&后面的东西
+    carry && (ans.push(carry))//最高位进位
+    ans.reverse();
+    // 转为字符串
+    // return ans.join('')
+
+
+    // 返回的应该也是一个节点，头节点
+    let ret = [];
+    for (let i = 0, len = ans.length; i < len; i++) {
+        ret[i] = new ListNode(ans[i]);
+    }
+    // 最后一个不用计算
+    for (let i = 0, len = ans.length; i < len - 1; i++) {
+        ret[i].next = ret[i + 1]
+    }
+    // 返回头节点
+    return ret[0];
 }
 
 let a1 = new ListNode(1);
@@ -49,7 +82,11 @@ let b3 = new ListNode(6);
 b1.next = b2;
 b2.next = b3;
 
-addTwoNumbers(a1, b1)
+let ret = addTwoNumbers(a1, b1)
+while(ret){
+    console.log(ret.val)
+    ret = ret.next;
+}
 // let node = a1
 // while (node ) {
 //     console.log(node.val)
