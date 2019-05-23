@@ -17,17 +17,23 @@ var addTwoNumbers = function (l1, l2) {
     // 引用赋值原理
     newL1 = l1, newL2 = l2;//不会改变值
     // 倒着来相加
-    while(newL1){
+    while (newL1) {
         a.push(newL1.val);
         newL1 = newL1.next
     }
-    while(newL2){
-    b.push(newL2.val);
+    while (newL2) {
+        b.push(newL2.val);
         newL2 = newL2.next
     }
     a.reverse();
     b.reverse();
-    console.log(a,b)
+    console.log(a, b)
+
+    let ans = [];
+    let carry = 0;
+    while (a.length && b.length) {
+        
+    }
 }
 
 let a1 = new ListNode(1);
