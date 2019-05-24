@@ -1,0 +1,39 @@
+
+<!-- 客户端 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>socket.io</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="message">
+        <button>send</button>
+    </form>
+    <!-- 用来装服务器端返回来的消息 -->
+    <div id="message-board">
+
+    </div>
+    <!-- <h1>hello~</h1> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        let socket = io()
+        // 客户端与服务器端的交互 提交
+        $('form').submit(function(){
+            // 客户端发送message方法 ,内容为（自定义）
+            socket.emit('message',$('#message').val())
+            $('#message').val('')//将input框置空
+            return false
+        })
+        socket.on('message',function(msg){
+            // 显示在页面上 用dom节点
+            $('#message-board').append($('<div>').text(msg))
+        })
+    </script>
+</body>
+</html>

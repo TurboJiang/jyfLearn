@@ -63,7 +63,7 @@ var addTwoNumbers = function (l1, l2) {
     }
     // 最后一个不用计算
     for (let i = 0, len = ans.length; i < len - 1; i++) {
-        ret[i].next = ret[i + 1]
+        ret[i].next = ret[i + 1]//指针
     }
     // 返回头节点
     return ret[0];
