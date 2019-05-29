@@ -1,0 +1,15 @@
+{
+  "name": "static-resource-server",
+  "version": "1.0.0",
+  "description": "上传到服务器之后内容不会随着服务的运行而改变:html css js 图片\r 1. 学会上传图片",
+  "main": "fileUpload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.2.1"
+  }
+}

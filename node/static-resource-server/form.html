@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 发送请求使用的编码方式-->
+    <!--form 表单默认的编码方式：x-www-form-urlEncoded  -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="upload">
+        <!-- 点击提交将文件传给upload -->
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>
